@@ -14,9 +14,9 @@ import {
   AlertCircle,
   Clock
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AdminDashboardSkeleton } from "@/components/skeletons";
-import { adminService } from "../@/lib/admin";
+import { adminService } from "@/lib/admin";
 import { toast } from "react-hot-toast";
 import { cn, formatCurrency } from "@/lib/utils";
 
@@ -139,7 +139,7 @@ export default function AdminDashboardPage() {
           icon={Banknote}
           description="Awaiting review"
           highlight={(stats?.pending_payout_requests || 0) > 0}
-          href="/lighthouse/payouts"
+          href="/payouts"
         />
       </div>
 
@@ -149,7 +149,7 @@ export default function AdminDashboardPage() {
             <div className="flex items-center justify-between">
               <CardTitle className="text-sm font-medium">Recent Events</CardTitle>
               <Link 
-                href="/lighthouse/events" 
+                href="/events" 
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
               >
                 View all
@@ -168,7 +168,7 @@ export default function AdminDashboardPage() {
                 {recentEvents.map((event) => (
                   <Link
                     key={event.event_id} 
-                    href={`/lighthouse/events/${event.event_id}`}
+                    href={`/events/${event.event_id}`}
                     className="flex items-center justify-between p-3 -mx-3 rounded-lg hover:bg-muted/50 transition-colors group"
                   >
                     <div className="min-w-0 flex-1">
@@ -204,7 +204,7 @@ export default function AdminDashboardPage() {
             
             <div className="grid gap-2">
               <Link 
-                href="/lighthouse/events?filter=pending" 
+                href="/events?filter=pending" 
                 className="flex items-center justify-between p-3 rounded-lg border border-border/40 hover:bg-muted/50 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
@@ -214,7 +214,7 @@ export default function AdminDashboardPage() {
                 <ArrowRight className="w-4 h-4 text-muted-foreground" />
               </Link>
               <Link 
-                href="/lighthouse/users" 
+                href="/users" 
                 className="flex items-center justify-between p-3 rounded-lg border border-border/40 hover:bg-muted/50 transition-colors"
               >
                 <div className="flex items-center gap-2.5">
@@ -223,11 +223,11 @@ export default function AdminDashboardPage() {
                 </div>
                 <ArrowRight className="w-4 h-4 text-muted-foreground" />
               </Link>
-              <Link href="/lighthouse/payouts" className={`flex items-center justify-center gap-2 p-2 border rounded-md hover:bg-muted transition-colors text-xs font-medium ${(stats?.pending_payout_requests || 0) > 0 ? 'border-amber-500/50 bg-amber-50/50 text-amber-700' : ''}`}>
+              <Link href="/payouts" className={`flex items-center justify-center gap-2 p-2 border rounded-md hover:bg-muted transition-colors text-xs font-medium ${(stats?.pending_payout_requests || 0) > 0 ? 'border-amber-500/50 bg-amber-50/50 text-amber-700' : ''}`}>
                 <Banknote className="w-3 h-3" />
                 Payouts {(stats?.pending_payout_requests || 0) > 0 && `(${stats.pending_payout_requests})`}
               </Link>
-              <Link href="/lighthouse/revenue" className="flex items-center justify-center gap-2 p-2 border rounded-md hover:bg-muted transition-colors text-xs font-medium">
+              <Link href="/revenue" className="flex items-center justify-center gap-2 p-2 border rounded-md hover:bg-muted transition-colors text-xs font-medium">
                 <DollarSign className="w-3 h-3" />
                 Revenue
               </Link>

@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { Loader2, Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
 import { toast } from "react-hot-toast";
-import useAuthStore from "../@/store/authStore";
-import { adminService } from "../@/lib/admin";
-import { Button } from "../@/components/ui/button";
-import Logo from "../@/components/Logo";
+import useAuthStore from "@/store/authStore";
+import { adminService } from "@/lib/admin";
+import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
       );
 
       toast.success("Welcome back, Admin");
-      router.push("/lighthouse/dashboard");
+      router.push("/dashboard");
     } catch (error) {
       console.error(error);
       let message = "Invalid credentials";

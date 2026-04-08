@@ -13,9 +13,9 @@ import {
 	Trash2,
 	Eye,
 } from "lucide-react";
-import { adminService } from "../@/lib/admin";
+import { adminService } from "@/lib/admin";
 import { toast } from "react-hot-toast";
-import { Button } from "../@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { AdminDataTable } from "@/components/ui/admin-data-table";
 import { AdminTableSkeleton } from "@/components/skeletons";
 import { useConfirmModal } from "@/components/ui/confirmation-modal";
@@ -177,7 +177,7 @@ export default function EventsPage() {
       render: (_, event) => (
         <div className="min-w-0">
           <Link
-            href={`/lighthouse/events/${event.event_id}`}
+            href={`/events/${event.event_id}`}
             className="text-sm font-medium text-foreground hover:text-primary transition-colors line-clamp-1"
           >
             {event.event_name}
@@ -241,7 +241,7 @@ export default function EventsPage() {
             className="h-8 w-8 p-0"
             asChild
           >
-            <Link href={`/lighthouse/events/${event.event_id}`}>
+            <Link href={`/events/${event.event_id}`}>
               <Eye className="w-4 h-4 text-muted-foreground" />
             </Link>
           </Button>

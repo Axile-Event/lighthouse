@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function AdminAwareLayout({ children }) {
   const pathname = usePathname();
-  const isAdmin = pathname?.startsWith("/lighthouse");
+  const isAdmin = pathname?.startsWith("");
   const isResetPin = pathname === "/reset-pin";
   const isStudentDashboard = pathname?.startsWith("/dashboard/student");
   const isOrgDashboard = pathname?.startsWith("/dashboard/org");

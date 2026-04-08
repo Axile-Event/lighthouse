@@ -26,27 +26,27 @@ import Logo from "../Logo";
 const sidebarItems = [
   {
     title: "Dashboard",
-    href: "/lighthouse/dashboard",
+    href: "/dashboard",
     icon: LayoutDashboard,
   },
   {
     title: "Users",
-    href: "/lighthouse/users",
+    href: "/users",
     icon: Users,
   },
   {
     title: "Events",
-    href: "/lighthouse/events",
+    href: "/events",
     icon: CalendarDays,
   },
   {
     title: "Tickets",
-    href: "/lighthouse/tickets",
+    href: "/tickets",
     icon: Ticket,
   },
   {
     title: "Check-in",
-    href: "/lighthouse/check-in",
+    href: "/check-in",
     icon: QrCode,
   },
   {
@@ -54,40 +54,40 @@ const sidebarItems = [
     items: [
       {
         title: "Payout Requests",
-        href: "/lighthouse/payouts",
+        href: "/payouts",
         icon: Banknote,
         showBadge: true,
       },
       {
         title: "Withdrawals",
-        href: "/lighthouse/withdrawals",
+        href: "/withdrawals",
         icon: History,
       },
       {
         title: "Payment Forms",
-        href: "/lighthouse/payment-forms",
+        href: "/payment-forms",
         icon: FileText,
       },
       {
         title: "Revenue",
-        href: "/lighthouse/revenue",
+        href: "/revenue",
         icon: BarChart3,
       },
     ]
   },
   {
     title: "Hiring",
-    href: "/lighthouse/hiring",
+    href: "/hiring",
     icon: Briefcase,
   },
   {
     title: "Settings",
-    href: "/lighthouse/settings",
+    href: "/settings",
     icon: Settings,
   },
   {
     title: "Audit Logs",
-    href: "/lighthouse/audit-logs",
+    href: "/audit-logs",
     icon: History,
   },
 ];
@@ -145,7 +145,7 @@ export function AdminSidebar({ className }) {
       className
     )}>
       <div className="h-16 border-b border-border/40 flex items-center justify-center overflow-hidden">
-        <Link href="/lighthouse/dashboard" className="hover:opacity-80 transition-opacity">
+        <Link href="/dashboard" className="hover:opacity-80 transition-opacity">
           <Logo 
             iconSize="h-28 w-auto" 
             style={{ marginTop: '-20px', marginBottom: '-20px' }}

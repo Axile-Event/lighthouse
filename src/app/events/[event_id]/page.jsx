@@ -108,7 +108,7 @@ export default function AdminEventDetailsPage() {
     try {
       await adminService.deleteEvent(event_id);
       toast.success("Event deleted successfully");
-      router.push("/lighthouse/events");
+      router.push("/events");
     } catch (error) {
       console.error(error);
       toast.error("Failed to delete event");
@@ -124,7 +124,7 @@ export default function AdminEventDetailsPage() {
       <div className="flex flex-col items-center justify-center min-h-[50vh] gap-4">
         <Calendar className="w-12 h-12 text-muted-foreground/40" />
         <p className="text-muted-foreground">Event not found</p>
-        <Button variant="outline" onClick={() => router.push("/lighthouse/events")}>
+        <Button variant="outline" onClick={() => router.push("/events")}>
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Events
         </Button>
       </div>
@@ -137,7 +137,7 @@ export default function AdminEventDetailsPage() {
         <Button 
           variant="ghost" 
           size="icon" 
-          onClick={() => router.push("/lighthouse/events")}
+          onClick={() => router.push("/events")}
           className="h-9 w-9"
         >
           <ArrowLeft className="w-5 h-5" />
