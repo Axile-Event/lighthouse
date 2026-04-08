@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { adminService } from "../../../lib/admin";
+import { adminService } from "../@/lib/admin";
 import { 
   DollarSign, 
   Calendar, 
@@ -20,7 +20,7 @@ import {
   Search,
   Download
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AdminRevenueSkeleton } from "@/components/skeletons";
 import { cn, formatCurrency } from "@/lib/utils";

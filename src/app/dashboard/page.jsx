@@ -14,9 +14,9 @@ import {
   AlertCircle,
   Clock
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../@/components/ui/card";
 import { AdminDashboardSkeleton } from "@/components/skeletons";
-import { adminService } from "../../../lib/admin";
+import { adminService } from "../@/lib/admin";
 import { toast } from "react-hot-toast";
 import { cn, formatCurrency } from "@/lib/utils";
 

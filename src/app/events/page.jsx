@@ -13,9 +13,9 @@ import {
 	Trash2,
 	Eye,
 } from "lucide-react";
-import { adminService } from "../../../lib/admin";
+import { adminService } from "../@/lib/admin";
 import { toast } from "react-hot-toast";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../@/components/ui/button";
 import { AdminDataTable } from "@/components/ui/admin-data-table";
 import { AdminTableSkeleton } from "@/components/skeletons";
 import { useConfirmModal } from "@/components/ui/confirmation-modal";

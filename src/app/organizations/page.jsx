@@ -3,10 +3,10 @@
 
 import { useEffect, useState } from "react";
 import { Loader2, Mail, Phone, Building2, Search } from "lucide-react";
-import { adminService } from "../../../lib/admin";
+import { adminService } from "../@/lib/admin";
 import { toast } from "react-hot-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
-import { Button } from "../../../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../@/components/ui/card";
+import { Button } from "../@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TableSkeleton } from "@/components/skeletons";
 

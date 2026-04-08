@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "@/store/authStore";
 import { Menu, X } from "lucide-react";
-import { ModeToggle } from "../../components/ModeToggle";
-import { Button } from "../../components/ui/button";
-import { ConfirmModalProvider } from "../../components/ui/confirmation-modal";
+import { ModeToggle } from "@/components/ModeToggle";
+import { Button } from "@/components/ui/button";
+import { ConfirmModalProvider } from "@/components/ui/confirmation-modal";
 import { AnimatePresence, motion } from "framer-motion";
-import { AdminSidebar } from "../../components/admin/Sidebar";
+import { AdminSidebar } from "@/components/admin/Sidebar";
 import { 
   AdminLayoutSkeleton,
   AdminDashboardSkeleton 
