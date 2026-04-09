@@ -26,6 +26,8 @@ import toast from "react-hot-toast"
 import api from "@/lib/axios"
 import CustomDropdown from "@/components/ui/CustomDropdown"
 
+const isPaystackAvailable = false; // Maintenance flag
+
 /**
  * BulkBookForAttendeeModal - A multi-step wizard for organizers to book tickets
  * for multiple attendees at once.
@@ -45,7 +47,7 @@ export default function BulkBookForAttendeeModal({ isOpen, onClose, event, event
 	const [ticketCount, setTicketCount] = useState(5)
 	const [loading, setLoading] = useState(false)
 	const [expandedIndex, setExpandedIndex] = useState(0)
-	const [paymentMethod, setPaymentMethod] = useState('paystack')
+	const [paymentMethod, setPaymentMethod] = useState(isPaystackAvailable ? 'paystack' : 'manual_bank_transfer')
 	const fileInputRef = useRef(null)
 	
 	const isPaidEvent = event?.pricing_type === "paid"
@@ -639,15 +641,18 @@ export default function BulkBookForAttendeeModal({ isOpen, onClose, event, event
 								<div className="flex gap-2">
 									<button
 										type="button"
-										onClick={() => setPaymentMethod('paystack')}
+										onClick={() => isPaystackAvailable && setPaymentMethod('paystack')}
 										className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border transition-all ${
 											paymentMethod === 'paystack'
 												? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-400'
 												: 'bg-white/5 border-white/10 text-gray-400 hover:border-white/20'
-										}`}
+										} ${!isPaystackAvailable ? 'opacity-50 grayscale cursor-not-allowed' : ''}`}
 									>
 										<CreditCard className="w-4 h-4" />
-										<span className="text-sm font-medium">Paystack</span>
+										<div className="flex flex-col items-center">
+											<span className="text-sm font-medium">Paystack</span>
+											{!isPaystackAvailable && <span className="text-[8px] uppercase font-bold text-rose-500">Unavailable</span>}
+										</div>
 									</button>
 									<button
 										type="button"

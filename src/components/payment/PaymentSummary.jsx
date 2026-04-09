@@ -145,13 +145,18 @@ const PaymentSummary = ({
           <div className="hidden lg:block pt-2 space-y-3">
             <Button 
               onClick={onPay}
-              disabled={loading}
-              className="w-full h-14 text-sm font-black uppercase tracking-widest shadow-xl shadow-rose-600/20 bg-rose-600 hover:bg-rose-700 active:scale-[0.98] transition-all"
+              disabled={loading || (paymentMethod === 'paystack' && !isPaystackAvailable)}
+              className="w-full h-14 text-sm font-black uppercase tracking-widest shadow-xl shadow-rose-600/20 bg-rose-600 hover:bg-rose-700 active:scale-[0.98] transition-all disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   Redirecting...
+                </>
+              ) : (paymentMethod === 'paystack' && !isPaystackAvailable) ? (
+                <>
+                  <Lock className="mr-2 h-4 w-4" />
+                  Currently Unavailable
                 </>
               ) : (
                 <>
