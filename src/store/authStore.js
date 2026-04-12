@@ -25,12 +25,13 @@ export const useAuthStore = create(
         if (typeof window !== "undefined") {
           const cookieData = { token, refreshToken: refresh, role };
           const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+          const isAxileDomain = window.location.hostname.endsWith('axile.ng');
           const cookieOptions = { 
             expires: 7,
             secure: !isLocalhost,
             sameSite: 'Lax'
           };
-          if (!isLocalhost) {
+          if (isAxileDomain) {
             cookieOptions.domain = ".axile.ng";
           }
           Cookies.set("axile_shared_auth", JSON.stringify(cookieData), cookieOptions);
@@ -66,11 +67,11 @@ export const useAuthStore = create(
       },
       logout: () => {
         if (typeof window !== "undefined") {
-          const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-          if (isLocalhost) {
-            Cookies.remove("axile_shared_auth");
-          } else {
+          const isAxileDomain = window.location.hostname.endsWith('axile.ng');
+          if (isAxileDomain) {
             Cookies.remove("axile_shared_auth", { domain: ".axile.ng" });
+          } else {
+            Cookies.remove("axile_shared_auth");
           }
         }
 
