@@ -126,7 +126,7 @@ export default function LighthouseCheckInPage() {
   const regionId = "lighthouse-reader";
 
   const { data: events = [] } = useQuery({
-    queryKey: ["admin", "events" 'check-in'],
+    queryKey: ["admin", "events", 'check-in'],
     queryFn: async () => {
       const data = await adminService.getAllEvents( { page_size: 100});
       return data.events || [];
