@@ -24,12 +24,17 @@ export const useAuthStore = create(
         // Shared cookie for cross-subdomain auth
         if (typeof window !== "undefined") {
           const cookieData = { token, refreshToken: refresh, role };
-          Cookies.set("axile_shared_auth", JSON.stringify(cookieData), { 
-            domain: ".axile.ng", 
+          const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+          const isAxileDomain = window.location.hostname.endsWith('axile.ng');
+          const cookieOptions = { 
             expires: 7,
-            secure: true,
+            secure: !isLocalhost,
             sameSite: 'Lax'
-          });
+          };
+          if (isAxileDomain) {
+            cookieOptions.domain = ".axile.ng";
+          }
+          Cookies.set("axile_shared_auth", JSON.stringify(cookieData), cookieOptions);
 
           localStorage.removeItem("organizer-storage");
           localStorage.removeItem("Axile_pin_reminder_dismissed");
@@ -62,7 +67,12 @@ export const useAuthStore = create(
       },
       logout: () => {
         if (typeof window !== "undefined") {
-          Cookies.remove("axile_shared_auth", { domain: ".axile.ng" });
+          const isAxileDomain = window.location.hostname.endsWith('axile.ng');
+          if (isAxileDomain) {
+            Cookies.remove("axile_shared_auth", { domain: ".axile.ng" });
+          } else {
+            Cookies.remove("axile_shared_auth");
+          }
         }
 
         if (stopTokenRefreshTimer) {

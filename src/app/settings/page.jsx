@@ -290,7 +290,7 @@ export default function SettingsPage() {
                 value={settings.support_email}
                 onChange={(e) => handleChange("support_email", e.target.value)}
                 className="bg-background/50 border-border/40"
-                placeholder="support@example.com"
+                placeholder="support@axile.ng"
               />
             </div>
           </CardContent>

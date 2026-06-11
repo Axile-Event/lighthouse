@@ -793,7 +793,7 @@ function AttendeeForm({ index, attendee, isExpanded, onToggle, onUpdate, categor
 								type="email"
 								value={attendee.email}
 								onChange={(e) => onUpdate('email', e.target.value)}
-								placeholder="attendee@example.com"
+								placeholder="attendee@axile.ng"
 								className="w-full pl-10 pr-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-emerald-500/50 transition-all"
 							/>
 						</div>

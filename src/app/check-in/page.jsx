@@ -126,10 +126,10 @@ export default function LighthouseCheckInPage() {
   const regionId = "lighthouse-reader";
 
   const { data: events = [] } = useQuery({
-    queryKey: ["admin", "events"],
+    queryKey: ["admin", "events", 'check-in'],
     queryFn: async () => {
-      const list = await adminService.getAllEvents();
-      return Array.isArray(list) ? list : [];
+      const data = await adminService.getAllEvents( { page_size: 100});
+      return data.events || [];
     },
     refetchOnWindowFocus: true
   });

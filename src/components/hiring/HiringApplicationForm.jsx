@@ -289,7 +289,7 @@ const HiringApplicationForm = ({ defaultPosition = "", roleType = "intern" }) =>
             id="email"
             name="email"
             type="email"
-            placeholder="john@example.com"
+            placeholder="your-name@axile.ng"
             value={form.email}
             onChange={handleChange}
             className="bg-muted/50 border-border h-12 rounded-xl focus-visible:ring-primary/20"
